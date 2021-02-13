@@ -1,6 +1,6 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { getPosts } from "../API/api";
+import { Link, useParams } from "react-router-dom";
+import { getUserPosts } from "../API/api";
 import { TUserPosts } from "../types";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
@@ -13,7 +13,7 @@ export default function PostPage() {
   const [localData, setLocalData] = React.useState<any[]>([]);
 
   React.useEffect(() => {
-    getPosts(params.id)
+    getUserPosts(params.id)
       .then((res) => {
         setData(res);
         setLocalData(res);
@@ -57,13 +57,15 @@ export default function PostPage() {
                     <b>Post Title: </b>
                     <u>{post.title}</u>
                   </li>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    style={{ margin: 10 }}
-                  >
-                    View Post
-                  </Button>
+                  <Link to={`/postDetails/${post.id}`}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      style={{ margin: 10 }}
+                    >
+                      View Post
+                    </Button>
+                  </Link>
                 </div>
               );
             })}
