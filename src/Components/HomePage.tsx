@@ -25,10 +25,8 @@ export default function HomePage() {
     const temp = [
       ...localData.filter(
         (userData) =>
-          userData?.name?.toLowerCase().startsWith(query?.toLowerCase()) ||
-          userData?.company?.name
-            ?.toLowerCase()
-            .startsWith(query?.toLowerCase())
+          userData?.name?.toLowerCase().includes(query?.toLowerCase()) ||
+          userData?.company?.name?.toLowerCase().includes(query?.toLowerCase())
       ),
     ];
     setData(temp);
