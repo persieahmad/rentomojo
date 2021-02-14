@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function BasicTable({ data }: { data: any }) {
+export default function BasicTable({ data }: any) {
   const classes = useStyles();
 
   return (
@@ -37,7 +37,7 @@ export default function BasicTable({ data }: { data: any }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row: any) => (
+            {data?.map((row: any) => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
                   {row.name}

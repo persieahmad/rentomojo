@@ -5,13 +5,14 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import { TComments, TUserPosts } from "../types";
 
 export default function PostDetailsPage() {
   let params: any = useParams();
-  const [data, setData] = React.useState<any>([]);
+  const [data, setData] = React.useState<TUserPosts | null>(null);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [showComments, setShowComments] = React.useState<boolean>(false);
-  const [commentsData, setCommentsData] = React.useState<any>([]);
+  const [commentsData, setCommentsData] = React.useState<TComments[]>([]);
   const [showSnackbar, setShowSnackbar] = React.useState<boolean>(false);
 
   function Alert(props: AlertProps) {

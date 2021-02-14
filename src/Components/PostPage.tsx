@@ -10,7 +10,7 @@ export default function PostPage() {
   const [data, setData] = React.useState<TUserPosts[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [query, setQuery] = React.useState<string>("");
-  const [localData, setLocalData] = React.useState<any[]>([]);
+  const [localData, setLocalData] = React.useState<TUserPosts[]>([]);
 
   React.useEffect(() => {
     getUserPosts(params.id)

@@ -2,10 +2,11 @@ import React from "react";
 import BasicTable from "../UI/Table";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { getUsers } from "../API/api";
+import { TUsers } from "../types";
 
 export default function HomePage() {
-  const [data, setData] = React.useState<any[]>([]);
-  const [localData, setLocalData] = React.useState<any[]>([]);
+  const [data, setData] = React.useState<TUsers[]>([]);
+  const [localData, setLocalData] = React.useState<TUsers[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [query, setQuery] = React.useState<string>("");
 
